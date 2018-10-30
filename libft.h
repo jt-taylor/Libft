@@ -6,7 +6,7 @@
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 10:51:28 by jtaylor           #+#    #+#             */
-/*   Updated: 2018/10/23 14:34:54 by jtaylor          ###   ########.fr       */
+/*   Updated: 2018/10/29 19:09:41 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ char			*ft_strcpy(char *dst, char const *src);
 char			*ft_strdup(char const *s);
 char			*ft_strncat(char *s1, char const *s2, size_t n);
 char			*ft_strncpy(char *dst, char const *src, size_t len);
-char			*ft_strndup(char const *s1, size_t n);
 char			*ft_strnstr(char const *haystack,
 								char const *needle, size_t len);
 char			*ft_strrchr(char const *s, int c);
@@ -106,5 +105,12 @@ void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+
+/*
+**	personal functions
+*/
+
+char			*ft_strndup(char const *s1, size_t n);
+char			*ft_strjoin_free(char const *s1, char const *s2, int nb);
 
 #endif
