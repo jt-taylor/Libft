@@ -6,12 +6,12 @@
 #    By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/21 17:04:25 by jtaylor           #+#    #+#              #
-#    Updated: 2018/10/22 11:49:41 by jtaylor          ###   ########.fr        #
+#    Updated: 2018/10/31 09:30:18 by jtaylor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-FLAGS = -Wall -Wextra -Werror -I. -c
+FLAGS = -Wall -Wextra -Werror -Iincludes -c
 
 SRC = ./ft_atoi.c \
 		ft_bzero.c \
@@ -54,6 +54,7 @@ SRC = ./ft_atoi.c \
 		ft_striter.c \
 		ft_striteri.c \
 		ft_strjoin.c \
+		ft_strjoin_free.c \
 		ft_strlcat.c \
 		ft_strlen.c \
 		ft_strmap.c \
