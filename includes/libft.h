@@ -6,7 +6,7 @@
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 10:51:28 by jtaylor           #+#    #+#             */
-/*   Updated: 2018/10/31 09:30:55 by jtaylor          ###   ########.fr       */
+/*   Updated: 2018/11/14 12:26:05 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
 char			*ft_strndup(char const *s1, size_t n);
 char			*ft_strjoin_free(char const *s1, char const *s2, int nb);
+void			ft_putstrarr(char **strarr);
 
 #endif
