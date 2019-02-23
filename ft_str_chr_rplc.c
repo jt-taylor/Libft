@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_str_chr_rplc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 16:35:07 by jtaylor           #+#    #+#             */
-/*   Updated: 2018/11/19 16:04:40 by jtaylor          ###   ########.fr       */
+/*   Created: 2018/11/16 15:45:18 by jtaylor           #+#    #+#             */
+/*   Updated: 2018/11/16 15:48:37 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_str_chr_rplc(char *str, char ch1, char ch2)
 {
-	if (*alst)
+	unsigned char *ptr;
+
+	ptr = (unsigned char *)str;
+	while (*ptr)
 	{
-		while (*alst)
-		{
-			del((*alst)->content, (*alst)->content_size);
-			free(*alst);
-			*alst = (*alst)->next;
-		}
-		*alst = NULL;
+		if (*ptr == ch1)
+			*ptr = ch2;
+		ptr++;
 	}
+	if (*ptr == ch1)
+		*ptr = ch2;
 }
