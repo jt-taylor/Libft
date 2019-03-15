@@ -6,7 +6,7 @@
 #    By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/21 17:04:25 by jtaylor           #+#    #+#              #
-#    Updated: 2019/02/23 19:37:27 by jtaylor          ###   ########.fr        #
+#    Updated: 2019/03/15 00:21:55 by jtaylor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,11 +88,14 @@ $(NAME): $(OBJ)
 
 $(OBJ): $(SRC)
 	gcc $(FLAGS) $(SRC)
+	make -C ./ft_printf
 
 clean:
 	rm -f $(OBJ)
+	make clean -C ./ft_printf
 
 fclean: clean
 	rm -f $(NAME)
+	make fclean -C ./ft_printf
 
 re: fclean all
