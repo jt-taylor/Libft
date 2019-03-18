@@ -6,7 +6,7 @@
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 10:51:28 by jtaylor           #+#    #+#             */
-/*   Updated: 2018/11/16 15:49:09 by jtaylor          ###   ########.fr       */
+/*   Updated: 2019/03/18 14:22:44 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,6 @@ char			*ft_strndup(char const *s1, size_t n);
 char			*ft_strjoin_free(char const *s1, char const *s2, int nb);
 void			ft_putstrarr(char **strarr);
 void			ft_str_chr_rplc(char *str, char ch1, char ch2);
+char			*ft_uitoa_base(uint32_t n, int base);
 
 #endif
