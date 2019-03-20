@@ -6,7 +6,7 @@
 #    By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/21 17:04:25 by jtaylor           #+#    #+#              #
-#    Updated: 2019/03/18 14:21:05 by jtaylor          ###   ########.fr        #
+#    Updated: 2019/03/19 23:43:49 by jtaylor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,7 @@ SRC = ./ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 		ft_uitoa_base.c \
+		get_all_lines.c \
 		get_next_line.c 
 
 OBJ = $(SRC:%.c=%.o)

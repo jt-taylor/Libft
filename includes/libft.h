@@ -6,7 +6,7 @@
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 10:51:28 by jtaylor           #+#    #+#             */
-/*   Updated: 2019/03/18 14:22:44 by jtaylor          ###   ########.fr       */
+/*   Updated: 2019/03/19 23:40:26 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ char			*ft_strjoin_free(char const *s1, char const *s2, int nb);
 void			ft_putstrarr(char **strarr);
 void			ft_str_chr_rplc(char *str, char ch1, char ch2);
 char			*ft_uitoa_base(uint32_t n, int base);
+void			get_all_lines(char **line, int fd);
 
 #endif
