@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_all_lines.c                                    :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 22:36:46 by jtaylor           #+#    #+#             */
-/*   Updated: 2019/03/21 07:34:27 by jtaylor          ###   ########.fr       */
+/*   Created: 2018/10/20 19:26:59 by jtaylor           #+#    #+#             */
+/*   Updated: 2018/10/20 19:32:05 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** add this to the header and the makefile
-*/
 #include "libft.h"
 
-void		get_all_lines(char **line, int fd)
+void	*ft_memalloc(size_t size)
 {
-	char		add_char[2];
-	char		*tmp;
-	char		*str;
-	int			i;
+	void	*mem;
 
-	i = 1;
-	add_char[1] = 0;
-	str = ft_strdup("");
-	while (i > 0)
-	{
-		i = read(fd, add_char, 1);
-		if (i == 0)
-			break ;
-		tmp = str;
-		str = ft_strjoin(str, add_char);
-		free(tmp);
-	}
-	line[0] = str;
+	mem = malloc(size);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, size);
+	return (mem);
 }

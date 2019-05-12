@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_all_lines.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 22:36:46 by jtaylor           #+#    #+#             */
-/*   Updated: 2019/03/21 07:34:27 by jtaylor          ###   ########.fr       */
+/*   Created: 2018/10/20 17:10:24 by jtaylor           #+#    #+#             */
+/*   Updated: 2018/10/22 20:21:38 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** add this to the header and the makefile
-*/
 #include "libft.h"
 
-void		get_all_lines(char **line, int fd)
+char	*ft_strdup(char const *s)
 {
-	char		add_char[2];
-	char		*tmp;
-	char		*str;
-	int			i;
+	char	*dup;
+	int		i;
 
-	i = 1;
-	add_char[1] = 0;
-	str = ft_strdup("");
-	while (i > 0)
+	i = 0;
+	if ((dup = ft_strnew(ft_strlen(s))))
+		;
+	else
+		return (NULL);
+	while (s[i] != '\0')
 	{
-		i = read(fd, add_char, 1);
-		if (i == 0)
-			break ;
-		tmp = str;
-		str = ft_strjoin(str, add_char);
-		free(tmp);
+		dup[i] = s[i];
+		i++;
 	}
-	line[0] = str;
+	return (dup);
 }

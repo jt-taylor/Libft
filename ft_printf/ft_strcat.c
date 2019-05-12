@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_all_lines.c                                    :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 22:36:46 by jtaylor           #+#    #+#             */
-/*   Updated: 2019/03/21 07:34:27 by jtaylor          ###   ########.fr       */
+/*   Created: 2018/10/20 12:28:10 by jtaylor           #+#    #+#             */
+/*   Updated: 2018/10/22 12:33:58 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** add this to the header and the makefile
-*/
 #include "libft.h"
 
-void		get_all_lines(char **line, int fd)
+char	*ft_strcat(char *s1, char const *s2)
 {
-	char		add_char[2];
-	char		*tmp;
-	char		*str;
-	int			i;
+	int	i;
+	int	j;
 
-	i = 1;
-	add_char[1] = 0;
-	str = ft_strdup("");
-	while (i > 0)
+	i = 0;
+	j = ft_strlen(s1);
+	while (s2[i] != '\0')
 	{
-		i = read(fd, add_char, 1);
-		if (i == 0)
-			break ;
-		tmp = str;
-		str = ft_strjoin(str, add_char);
-		free(tmp);
+		s1[j] = s2[i];
+		i++;
+		j++;
 	}
-	line[0] = str;
+	s1[j] = '\0';
+	return (s1);
 }

@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_all_lines.c                                    :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 22:36:46 by jtaylor           #+#    #+#             */
-/*   Updated: 2019/03/21 07:34:27 by jtaylor          ###   ########.fr       */
+/*   Created: 2018/10/21 10:35:37 by jtaylor           #+#    #+#             */
+/*   Updated: 2018/10/21 12:52:08 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** add this to the header and the makefile
-*/
 #include "libft.h"
 
-void		get_all_lines(char **line, int fd)
+char	*ft_strnew(size_t size)
 {
-	char		add_char[2];
-	char		*tmp;
-	char		*str;
-	int			i;
+	char	*str;
 
-	i = 1;
-	add_char[1] = 0;
-	str = ft_strdup("");
-	while (i > 0)
+	if ((str = (char *)malloc(sizeof(char) * size + 1)))
 	{
-		i = read(fd, add_char, 1);
-		if (i == 0)
-			break ;
-		tmp = str;
-		str = ft_strjoin(str, add_char);
-		free(tmp);
+		ft_bzero(str, size + 1);
+		return (str);
 	}
-	line[0] = str;
+	else
+		return (NULL);
 }
