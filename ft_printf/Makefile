@@ -6,7 +6,7 @@
 #    By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/06 11:33:14 by jtaylor           #+#    #+#              #
-#    Updated: 2019/02/11 22:33:47 by jtaylor          ###   ########.fr        #
+#    Updated: 2019/08/01 16:19:14 by jtaylor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,20 +39,23 @@ OBJ += $(addprefix $(LIBFT_PATH),$(LIBFT_SRC_PATH:.c=.o))
 
 CFLAGS = -Wall -Wextra -Werror
 
+%.o : %.c
+	@gcc $(CFLAGS) -c $< -o $@ -I ./includes
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
+	@echo "\tBuilding libftprintf.a"
 	@ar -s $(NAME)
 
-%.o: %.c
-	@gcc $(CFLAGS) -c $< -o $@ -I ./includes/
-
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
+	@echo "\tRemoving ft_printf .o files"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "\tRemoving ft_printf Library\n"
 
 re: fclean all
 

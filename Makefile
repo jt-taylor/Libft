@@ -6,15 +6,16 @@
 #    By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/21 17:04:25 by jtaylor           #+#    #+#              #
-#    Updated: 2019/03/19 23:43:49 by jtaylor          ###   ########.fr        #
+#    Updated: 2019/08/01 16:50:24 by jtaylor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-FLAGS = -Wall -Wextra -Werror -Iincludes -c
+FLAGS = -Wall -Wextra -Werror -I includes -c
 
 SRC = ./ft_atoi.c \
 		ft_bzero.c \
+		ft_freestrarr.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
 		ft_isascii.c \
@@ -77,27 +78,43 @@ SRC = ./ft_atoi.c \
 		ft_toupper.c \
 		ft_uitoa_base.c \
 		get_all_lines.c \
-		get_next_line.c 
+		get_next_line.c \
+		ft_strsep.c \
+		ft_strtok.c \
+		ft_strcspn.c \
+		ft_stronly_space.c \
+		ft_strstart_w_str.c
 
 OBJ = $(SRC:%.c=%.o)
+
+OBJD = $(SRC:%.c=%.o)
 
 LIBHEADER = libft.h
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
+	@ar -rcs $(NAME) $(OBJ)
+	@echo "\tBuilding libft.a"
 
 $(OBJ): $(SRC)
-	gcc $(FLAGS) $(SRC)
-	make -C ./ft_printf
+	@gcc $(FLAGS) $(SRC)
+	@echo "\tBuilding libft .o files"
+	@make -C ./ft_printf
+
+debug : $(SRC)
+	@gcc -g3 $(FLAGS) $(SRC)
+	@make -C ./ft_printf
+	@ar -rcs $(NAME) $(OBJD)
 
 clean:
-	rm -f $(OBJ)
-	make clean -C ./ft_printf
+	@rm -f $(OBJ)
+	@make clean -C ./ft_printf
+	@echo "\tRemoving Libft .o files"
 
 fclean: clean
-	rm -f $(NAME)
-	make fclean -C ./ft_printf
+	@rm -f $(NAME)
+	@echo "\tRemoving libft.a\n"
+	@make fclean -C ./ft_printf
 
 re: fclean all

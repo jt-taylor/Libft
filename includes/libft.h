@@ -6,7 +6,7 @@
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 10:51:28 by jtaylor           #+#    #+#             */
-/*   Updated: 2019/03/19 23:40:26 by jtaylor          ###   ########.fr       */
+/*   Updated: 2019/07/25 18:21:04 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,11 @@ void			ft_putstrarr(char **strarr);
 void			ft_str_chr_rplc(char *str, char ch1, char ch2);
 char			*ft_uitoa_base(uint32_t n, int base);
 void			get_all_lines(char **line, int fd);
+void			ft_freestrarr(char **arr);
+char			*ft_strsep(char **string_in, char *delim);
+char			*ft_strtok(char *s, char *delim);
+int				ft_strcspn(char *string, char *lim);
+int				ft_stronly_space(char *str);
+int				ft_strstart_w_str(char *str, char *s);
 
 #endif

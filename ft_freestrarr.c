@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_freestrarr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/20 17:10:24 by jtaylor           #+#    #+#             */
-/*   Updated: 2019/08/09 21:43:26 by jtaylor          ###   ########.fr       */
+/*   Created: 2019/07/11 18:58:33 by jtaylor           #+#    #+#             */
+/*   Updated: 2019/07/11 19:00:06 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char const *s)
+void		ft_freestrarr(char **arr)
 {
-	char	*dup;
-	int		i;
+	int	i;
 
-	i = 0;
-	if (s != NULL && (dup = ft_strnew(ft_strlen(s))))
-		;
-	else
-		return (NULL);
-	while (s[i] != '\0')
-	{
-		dup[i] = s[i];
-		i++;
-	}
-	return (dup);
+	if (!arr)
+		return ;
+	i = -1;
+	while (arr[++i])
+		free(arr[i]);
+	free(arr);
+	arr = NULL;
 }

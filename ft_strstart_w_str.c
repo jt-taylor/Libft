@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strstart_w_str.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/20 17:10:24 by jtaylor           #+#    #+#             */
-/*   Updated: 2019/08/09 21:43:26 by jtaylor          ###   ########.fr       */
+/*   Created: 2019/07/25 18:17:15 by jtaylor           #+#    #+#             */
+/*   Updated: 2019/08/09 13:52:41 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char const *s)
+int		ft_strstart_w_str(char *str, char *s)
 {
-	char	*dup;
 	int		i;
 
 	i = 0;
-	if (s != NULL && (dup = ft_strnew(ft_strlen(s))))
-		;
-	else
-		return (NULL);
-	while (s[i] != '\0')
+	if (str == NULL || s == NULL)
+		return (0);
+	while (s[i])
 	{
-		dup[i] = s[i];
+		if (str[i] != s[i])
+			break ;
 		i++;
 	}
-	return (dup);
+	if (s[i] == '\0')
+		return (1);
+	return (0);
 }

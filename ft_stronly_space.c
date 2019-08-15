@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_stronly_space.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/20 17:10:24 by jtaylor           #+#    #+#             */
-/*   Updated: 2019/08/09 21:43:26 by jtaylor          ###   ########.fr       */
+/*   Created: 2019/07/18 14:51:58 by jtaylor           #+#    #+#             */
+/*   Updated: 2019/08/07 15:51:47 by jtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char const *s)
+int		ft_stronly_space(char *str)
 {
-	char	*dup;
 	int		i;
 
 	i = 0;
-	if (s != NULL && (dup = ft_strnew(ft_strlen(s))))
-		;
-	else
-		return (NULL);
-	while (s[i] != '\0')
+	while (str[i])
 	{
-		dup[i] = s[i];
+		if (str[i] > 32)
+			break ;
 		i++;
 	}
-	return (dup);
+	if (str[i] == '\0')
+		return (0);
+	return (1);
 }
